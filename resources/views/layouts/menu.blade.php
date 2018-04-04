@@ -5,7 +5,7 @@
             <ul class="nav navbar-nav">
                 <li class="{{ request()->is('home*') ? 'active' : '' }}"><a href="{{url('/home')}}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
                 <li class="{{ request()->is('kategori*') ? 'active':''}}"><a href="{{url('/kategori')}}"><span class="glyphicon glyphicon-plane"></span> Kategori</a></li>
-                {{--  <li class="{{ request()->is('kategori*') ? 'active':''}}"><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>  --}}
+                 <li class="{{ request()->is('user*') ? 'active':''}}"><a href="{{url('/user')}}"><span class="glyphicon glyphicon-user"></span> User</a></li> 
 
                 <!-- Dropdown-->
                 <li class="panel panel-default" id="dropdown">
