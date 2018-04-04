@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Artikel;
 use App\Kategori;
-class KategoriController extends Controller
+use Auth;
+class ArtikelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $data_kategori = Kategori::all();
-        return view('kategori.index')->with('data_kategori',$data_kategori);
+        $data_artikel = Artikel::all();
+        return view('artikel.index')->with('data_artikel',$data_artikel);
     }
 
     /**
@@ -24,7 +26,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('kategori.create');
+        $data_kategori = Kategori::all();
+        return view('artikel.create')->with('data_kategori',$data_kategori);
     }
 
     /**
@@ -35,11 +38,13 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $kategori = new Kategori();
-        $kategori->nama = $request->nama;
-        $kategori->keterangan = $request->keterangan;
-        $kategori->save();
-        return redirect()->action('KategoriController@index')->with('status','Data berhasil disimpan');
+        $artikel = new Artikel();
+        $artikel->judul = $request->judul;
+        $artikel->isi = $request->isi;
+        $artikel->kategori_id  =  $request->kategori;
+        $artikel->user_id = Auth::user()->id;
+        $artikel->save();
+        return redirect()->action('ArtikelController@index')->with('status','Artikel telah tersimpan');
     }
 
     /**
@@ -61,8 +66,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = Kategori::find($id);
-        return view('kategori.edit')->with('kategori',$kategori);
+        $data_kategori = Kategori::all();
+        $artikel = Artikel::find($id);
+        return view('artikel.edit')->with('artikel',$artikel)->with('data_kategori',$data_kategori);
     }
 
     /**
@@ -74,11 +80,13 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kategori = Kategori::find($id);
-        $kategori->nama = $request->nama;
-        $kategori->keterangan = $request->keterangan;
-        $kategori->save();
-        return redirect()->action('KategoriController@index')->with('status','Data berhasil diubah');
+        $artikel = Artikel::find($id);
+        $artikel->judul = $request->judul;
+        $artikel->isi = $request->isi;
+        $artikel->kategori_id  =  $request->kategori;
+        $artikel->user_id = Auth::user()->id;
+        $artikel->save();
+        return redirect()->action('ArtikelController@index')->with('status','Artikel telah tersimpan');
     }
 
     /**
@@ -89,14 +97,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        
-        $kategori = Kategori::find($id);
-        if($kategori->artikel->count()){
-            return redirect()->action('KategoriController@index')->with('danger','Masih terdapat artikel terkait kategori '.$kategori->nama);        
-        }else{
-            $kategori->delete();
-            return redirect()->action('KategoriController@index')->with('status','Data Berhasil dihapus');
-        }
-
+        $artikel = Artikel::find($id);
+        $artikel->delete();
+        return redirect()->action('ArtikelController@index')->with('status','Data telah terhapus');
     }
 }
