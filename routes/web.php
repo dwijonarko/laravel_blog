@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::middleware(['auth',])->group(function () {
+Route::middleware(['auth'])->group(function () {
 	Route::resource('/kategori','KategoriController');
 	Route::resource('/artikel','ArtikelController');	
 });

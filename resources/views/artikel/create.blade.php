@@ -11,7 +11,9 @@
                     <div class="col-sm-6">
                         <select name="kategori" id="kategori" class="form-control">
                             @foreach ($data_kategori as $kategori)
-                                <option value="{{$kategori->id}}"> {{$kategori->nama}}</option>
+                                <option value="{{$kategori->id}}">
+                                    {{$kategori->nama}}
+                                </option>
                             @endforeach
                         </select>
                     </div>
