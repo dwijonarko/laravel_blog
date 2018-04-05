@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-4 control-label">Name</label>
                     <div class="col-sm-8">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{ empty(old('name')) ? $user->name : old('name') }}">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{ old('name') ? old('name')  : $user->name  }}">
                     </div>
                 </div>
                 <div class="form-group">
