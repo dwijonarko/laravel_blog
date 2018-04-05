@@ -21,4 +21,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/artikel','ArtikelController');	
 });
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
 
+=======
+Route::resource('/kategori','KategoriController')->middleware('auth');
+Route::resource('/user','UserController')->middleware('auth');
+>>>>>>> User
