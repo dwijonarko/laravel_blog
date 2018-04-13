@@ -1,9 +1,9 @@
 ## About Laravel Blog
 
 Membuat Blog menggunakan Framework Laravel
+
 Cara menggunakan
-- Download repository dan ekstrak
-- Clone repository
+- Download repository dan ekstrak atau clone repository
 	```sh
 	$ git clone https://github.com/dwijonarko/laravel_blog.git
 	```
@@ -20,8 +20,8 @@ Cara menggunakan
 - Edit database name, database username dan database password
 	>....
 	> DB_DATABASE=your_db
- 	>DB_USERNAME=your_mysql_username
- 	>DB_PASSWORD=your_mysql_password
+ 	> DB_USERNAME=your_mysql_username
+ 	> DB_PASSWORD=your_mysql_password
  	>...
 - Migrate table
 	```sh
