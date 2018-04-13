@@ -20,8 +20,10 @@ Cara menggunakan
 - Edit database name, database username dan database password
 
 	> DB_DATABASE=your_db.
+
  	> DB_USERNAME=your_mysql_username.
- 	> DB_PASSWORD=your_mysql_password.
+ 	
+	> DB_PASSWORD=your_mysql_password.
 
 - Migrate table
 	```sh
