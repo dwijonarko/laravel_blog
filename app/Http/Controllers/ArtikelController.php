@@ -120,6 +120,7 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         $artikel = Artikel::find($id);
+         File::delete(public_path("images/".$artikel->gambar));
         $artikel->delete();
         return redirect()->action('ArtikelController@index')->with('status','Data telah terhapus');
     }
