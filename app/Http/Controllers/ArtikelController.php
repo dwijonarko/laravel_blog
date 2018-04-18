@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Artikel;
 use App\Kategori;
 use Auth;
+use File;
 class ArtikelController extends Controller
 {
     /**
@@ -38,11 +39,20 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'judul'=>'required|min:5',
+            'isi'=>'required|min:35',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $imageName = time().'.'.request()->gambar->getClientOriginalExtension();
+        request()->gambar->move(public_path('images'), $imageName);
         $artikel = new Artikel();
         $artikel->judul = $request->judul;
         $artikel->isi = $request->isi;
         $artikel->kategori_id  =  $request->kategori;
         $artikel->user_id = Auth::user()->id;
+        $artikel->gambar = $imageName;
         $artikel->save();
         return redirect()->action('ArtikelController@index')->with('status','Artikel telah tersimpan');
     }
@@ -80,11 +90,23 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'judul'=>'required|min:5',
+            'isi'=>'required|min:35',
+            'gambar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
         $artikel = Artikel::find($id);
         $artikel->judul = $request->judul;
         $artikel->isi = $request->isi;
         $artikel->kategori_id  =  $request->kategori;
         $artikel->user_id = Auth::user()->id;
+        if (!empty($request->gambar)) {
+            File::delete(public_path("images/".$artikel->gambar));
+            $imageName = time().'.'.request()->gambar->getClientOriginalExtension();
+            request()->gambar->move(public_path('images'), $imageName);
+            $artikel->gambar = $imageName;
+        }
         $artikel->save();
         return redirect()->action('ArtikelController@index')->with('status','Artikel telah tersimpan');
     }
