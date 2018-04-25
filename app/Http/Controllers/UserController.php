@@ -45,6 +45,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->level = 0;
         $user->save();
         return redirect()->action('UserController@index')->with('status','Data berhasil disimpan');
     }

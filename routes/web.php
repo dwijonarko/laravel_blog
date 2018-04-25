@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'FrontPageController@index');
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
 	Route::resource('/kategori','KategoriController');
