@@ -8,7 +8,7 @@
         <p class="text-muted">By <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{$artikel->user->name}} | <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{date('d-M-Y',strtotime($artikel->created_at))}}</p>
         <h3>{{$artikel->judul}}</h3>
         <img src="{{asset('images/'.$artikel->gambar)}}" alt="{{$artikel->judul}}" class="img-thumbnail img-responsive">        
-        <p>{{$artikel->isi}}</p>
+        <p>{!! nl2br(e($artikel->isi)) !!}</p>
     </div>
 </div>
 </div>   
