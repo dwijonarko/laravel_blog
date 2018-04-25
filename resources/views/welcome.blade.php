@@ -1,266 +1,148 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-   <head>
+  <head>
     <meta charset="utf-8"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<meta name="author" content="sumit kumar"> 
-	<title>{{ config('app.name', 'Laravel') }}</title> 
-	<link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-	<link href="{{asset('css/welcome.css')}}" rel="stylesheet" type="text/css">
-    <script defer src="{{asset('fa/js/fontawesome-all.min.js')}}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <meta name="author" content="sumit kumar"> 
+    <title>{{ config('app.name', 'Laravel') }}</title> 
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/welcome.css')}}" rel="stylesheet" type="text/css">
     </head>
-
 <body>
    
-  
-<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="/"><img src="https://lh3.googleusercontent.com/-N4NB2F966TU/WM7V1KYusRI/AAAAAAAADtA/fPvGVNzOkCo7ZMqLI6pPITE9ZF7NONmawCJoC/w185-h40-p-rw/logo.png"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Page 1-1</a></li>
-            <li><a href="#">Page 1-2</a></li>
-            <li><a href="#">Page 1-3</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
-        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    
-   
-    <section id="blog-section" >
-     <div class="container">
-       <div class="row">
-         <div class="col-lg-8">
-           <div class="row">
-              @foreach ($data_artikel as $artikel)
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                <img src="{{asset('images/'.$artikel->gambar)}}" alt="{{$artikel->judul}}" class="img-responsive">
-                <div class="content-title">
-                  <div class="text-center">
-                    <h3><a href="#">{{$artikel->judul}}</a></h3>
-                  </div>
-                </div>
-                <div class="content-footer">
-                  <img class="user-small-img" src="{{asset('images/userpic.png')}}">
-                  <span style="font-size: 16px;color: #fff;">{{$artikel->user->name}}</span>
-                    <span class="pull-right">
-                      <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                      <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                      </span>
-                  <div class="user-ditels">
-                  <div class="user-img"><img src="{{asset('images/userpic.png')}}" class="img-responsive"></div>
-                  <span class="user-full-ditels">
-                  <h3>{{$artikel->user->name}}</h3>
-                  <p>Web & Graphics Disigner</p>
-                  </span>
-                  
-                </div>
-                </div>
-                </aside>
-              </div>
-              @endforeach
-           </div>
-          </div>
-           
-<!--           // RECENT POST===========-->
-         <div class="col-lg-4">           
-               <div class="widget-sidebar">
-                 <h2 class="title-widget-sidebar">// RECENT POST</h2>
-                   <div class="content-widget-sidebar">
-                    <ul>
-                     <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-ojLI116-Mxk/WM1ZIwdnuwI/AAAAAAAADeo/4K6VpwIPSfgsmlXJB5o0N8scuI3iW4OpwCJoC/w424-h318-n-rw/thumbnail6.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-TrK1csbtHRs/WM1ZI1SIUNI/AAAAAAAADeo/OkiUjuad6skWl9ugxbiIA_436OwsWKBNgCJoC/w424-h318-n-rw/thumbnail3.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        <hr>
-                        
-                        <li class="recent-post">
-                        <div class="post-img">
-                         <img src="https://lh3.googleusercontent.com/-UKfIhJSBW9M/WM1ZI8ou34I/AAAAAAAADeo/vlLGY29147AYLaxUW29ZXJlun115BhkhgCJoC/w424-h318-n-rw/thumbnail7.jpg" class="img-responsive">
-                         </div>
-                         <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                         <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                        </li>
-                        
-                        
-                    </ul>
-                   </div>
-                 </div>
-             
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// ARCHIVES</h2>
-                <div class="last-post">
-                  <button class="accordion">21/4/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-13DR8P0-AN4/WM1ZIz1lRNI/AAAAAAAADeo/XMfJ7CM-pQg9qfRuCgSnphzqhaj3SQg6QCJoC/w424-h318-n-rw/thumbnail4.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>                 
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">5/7/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-QlnwuVgbxus/WM1ZI1FKQiI/AAAAAAAADeo/nGSd1ExnnfIfIBF27xs8-EdBdfglqFPZgCJoC/w424-h318-n-rw/thumbnail2.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">15/9/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-wRHL_FOH1AU/WM1ZIxQZ3DI/AAAAAAAADeo/lwJr8xndbW4MHI-lOB7CQ-14FJB5f5SWACJoC/w424-h318-n-rw/thumbnail5.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">2/3/2017</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img src="https://lh3.googleusercontent.com/-QlnwuVgbxus/WM1ZI1FKQiI/AAAAAAAADeo/nGSd1ExnnfIfIBF27xs8-EdBdfglqFPZgCJoC/w424-h318-n-rw/thumbnail2.jpg" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-             </div>
-             
-        <!--=====================
-               CATEGORIES
-          ======================-->
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
-                 <button class="categories-btn">Audio</button>
-                 <button class="categories-btn">Blog</button>
-                 <button class="categories-btn">Gallery</button>
-                 <button class="categories-btn">Images</button>
-             </div>  
-             
-              <!--=====================
-                    NEWSLATTER
-             ======================-->
-<div class="widget-sidebar">
- <h2 class="title-widget-sidebar">// NEWSLATTER</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut .</p>  
-<div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-      <input id="email" type="text" class="form-control" name="email" placeholder="Email">
-    </div>
-    <button type="button" class="btn btn-warning">Warning</button>
-             </div>  
-                 
-                 
-             </div>
-           </div>
-         </div>
-     
-    </section>
-    
-    
-   
-	
-	 <script src="{{asset('bootstrap/js/jquery.js')}}"></script>
-	 <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-	 <script>
-         $(document).ready(function(){
-         $('[data-toggle="tooltip"]').tooltip(); 
-         });
-         
-         
-        
-      
-         
-var acc = document.getElementsByClassName("accordion");
-var i;
+<header>
+	<nav class="navbar navbar-inverse navbar-static-top" role="Navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Bootstrap Based Blog</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Sign in</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].onclick = function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  }
-}
-</script>
+<section class="container">
+	<div class="jumbotron">
+		<h1>Bootstrap Blog Template</h1>
+		<p>This responsive Blog template is done in Bootstrap 3 with no extra CSS or Javascript</p>
+	</div>
+</section>
 
-       
+<div class="container">
+	<div class="col-sm-6 col-md-8 col-lg-8">
+		<div class="row">
+			@yield('content')
+		</div>
+		<hr>
+		<div>
+			<nav aria-label="...">
+				<ul class="pager">
+					<li class="previous"><a href="#"><span aria-hidden="true">←</span> Older Posts</a></li>
+					<li class="next disabled"><a href="#">Newer Posts<span aria-hidden="true">→</span></a></li>
+				</ul>
+			</nav>
+		</div>
 
+	</div>
 
+	<div class="col-sm-6 col-md-4 col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+				<h4 class="text-center">Search for Posts!</h4>
+				<form role="Form" method="GET" action="" accept-charset="UTF-8">
+					<div class="form-group">
+						<div class="input-group">
+							<input class="form-control" type="text" name="search" placeholder="Search..." required/>
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+							</span>
+						</div>
+					</div>
+				</form>
+
+				<h4 class="text-center">About me!</h4>
+				<img src="https://s3.amazonaws.com/myblog--flask-bucket/photos/comicavatar_500x500.jpg" alt="" class="img-thumbnail img-responsive">
+				<h5 class="text-center">Victor Santiago</h5>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+				<h4 class="text-center">Popular Posts!</h4>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="https://images.pexels.com/photos/301930/pexels-photo-301930.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h5>Images by pexels.com</h5>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="https://images.pexels.com/photos/34601/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h5>Images by pexels.com</h5>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h5>Images by pexels.com</h5>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="https://images.pexels.com/photos/273222/pexels-photo-273222.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h5>Images by pexels.com</h5>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<img src="https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" class="img-thumbnail img-responsive">
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h5>Images by pexels.com</h5>
+						<p class="text-muted"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Jan/21/2018</p>
+					</div>
+				</div>
+				<hr>
+
+				<h4 class="text-center">Our Newsletter!</h4>
+				<form role="Form" method="GET" action="" accept-charset="UTF-8">
+					<div class="form-group">
+						<div class="input-group">
+							<input class="form-control" type="text" name="search" placeholder=" sign up for our newsletter..." required/>
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit">Sign up</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="navbar-inverse">
+	<div class="container-fluid text-center">
+		<p class="text-muted">© Copyright 2018. All Rights Reserved.</p>
+	</div>
+</footer>
 
 </body>
 </html>

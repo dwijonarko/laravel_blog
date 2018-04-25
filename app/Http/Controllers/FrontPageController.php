@@ -9,6 +9,12 @@ class FrontPageController extends Controller
 {
     public function index(){
         $data_artikel  = Artikel::all();
-        return view('welcome')->with('data_artikel',$data_artikel);
+        return view('frontpage.index')->with('data_artikel',$data_artikel);
+    }
+
+    public function show($id){
+        $artikel = Artikel::find($id);
+        return view('frontpage.show')->with('artikel', $artikel);
+        
     }
 }
