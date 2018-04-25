@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">	
-    <meta name="author" content="sumit kumar"> 
-    <title>{{ config('app.name', 'Laravel') }}</title> 
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title> 
     <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/welcome.css')}}" rel="stylesheet" type="text/css">
@@ -18,8 +17,8 @@
 				<a class="navbar-brand" href="#">Bootstrap Based Blog</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Sign in</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="/login">Sign in</a></li>
 			</ul>
 		</div>
 	</nav>
