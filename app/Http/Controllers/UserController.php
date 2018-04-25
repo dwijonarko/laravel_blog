@@ -105,11 +105,15 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        if (\Auth::user()->id==$user->id) {
+        if (\Auth::user()->id==$user->id) { //apakah yg akan dihapus adalah user yang sedang login?
             return redirect()->action('UserController@index')->with('status','Data tidak bisa dihapus ');
             
+        }elseif($user->artikel->count()){ //apakah user ini punya artikel?
+            return redirect()->action('UserController@index')->with('status','Data tidak bisa dihapus ');
+        }else{
+            $user->delete();
+            return redirect()->action('UserController@index')->with('status','Data Berhasil dihapus');            
         }
-        $user->delete();
-        return redirect()->action('UserController@index')->with('status','Data Berhasil dihapus');
+
     }
 }

@@ -2,7 +2,16 @@
 @section('title','Edit Artikel')
 @section('content')
     <div class="row">
-            <form class="form-horizontal" action="/artikel/{{$artikel->id}}" method="POST">
+         @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            <form class="form-horizontal" action="/artikel/{{$artikel->id}}" method="POST"  enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
@@ -22,6 +31,14 @@
                         <textarea name="isi" id="isi" cols="100" rows="10">{{$artikel->isi}}</textarea>
                     </div>
                 </div>
+                <div class="form-group">
+                        <label for="gambar" class="control-label col-sm-2">Gambar</label>
+                        
+                        <div class="col-sm-8">
+                            <img src="{{asset('images/'.$artikel->gambar)}}" alt="{{$artikel->judul}}" width="300px">
+                            <input type="file" class="form-group" name="gambar">
+                        </div>
+                    </div>
                 <div class="form-group">
                     <div class="col-sm-10 ">
                         <button type="submit" class="btn btn-primary">Simpan</button>
