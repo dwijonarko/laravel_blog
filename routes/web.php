@@ -20,3 +20,4 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('/artikel','ArtikelController');	
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/komentar','KomentarController@store');

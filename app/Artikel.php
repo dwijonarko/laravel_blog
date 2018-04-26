@@ -14,4 +14,8 @@ class Artikel extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function komentar()
+    {
+        return $this->hasMany('App\Komentar');
+    }
 }
