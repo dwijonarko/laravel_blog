@@ -10,6 +10,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Level</th>
                 <th></th>
             </tr>
             
@@ -18,6 +19,15 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
+                <td>
+                    @if ($user->level == 2)
+                        Super Admin
+                    @elseif($user->level ==1)
+                        Admin
+                    @else
+                        User
+                    @endif
+                </td>
                 <td>
                     <ul class="list-inline">
                         <li><a href="/user/{{$user->id}}/edit" class="btn btn-xs btn-warning"> <i class="glyphicon glyphicon-edit"></i>  Edit</a></li>
