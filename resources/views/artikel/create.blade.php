@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <textarea name="isi" id="isi" cols="100" rows="10">{{old('isi')}}</textarea>
+                        <textarea name="isi" id="summernote" cols="100" rows="10">{{old('isi')}}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

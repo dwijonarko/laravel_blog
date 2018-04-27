@@ -3,4 +3,5 @@ $(function() {
         e.preventDefault();
         ('#delete-form').submit();
     });
+    $('#summernote').summernote();
   });

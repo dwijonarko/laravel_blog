@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -124,6 +125,7 @@
     <!-- Scripts -->
     <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
