@@ -39,6 +39,16 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="level" class="col-sm-4 control-label">Level</label>
+                    <div class="col-sm-8">
+                    <select name="level" id="level" class="form-control">
+                        <option {{ ($user->level==0? 'selected':'') }} value="0">User</option>
+                        <option {{ ($user->level==1? 'selected':'') }} value="1">Admin</option>
+                        <option {{ ($user->level==2? 'selected':'') }} value="2">Super Admin</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-4">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artikel;
-use App\Komentar;
+
 class FrontPageController extends Controller
 {
     public function index(){
@@ -14,7 +14,6 @@ class FrontPageController extends Controller
 
     public function show($id){
         $artikel = Artikel::find($id);
-        // $komentar = Artikel::find($id)->komentar;
         return view('frontpage.show')->with('artikel', $artikel);
         
     }
