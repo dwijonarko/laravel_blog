@@ -8,7 +8,7 @@
 						<img src="{{asset('images/'.$artikel->gambar)}}" alt="{{$artikel->judul}}" class="img-thumbnail img-responsive">
 						<p class="text-muted">By <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{$artikel->user->name}} | <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{date('d-M-Y',strtotime($artikel->created_at))}}</p>
 						<h3>{{$artikel->judul}}</h3>
-						<p>{{str_limit($artikel->isi,100)}}</p>
+						<p>{!! str_limit($artikel->isi,100) !!}</p>
 						<a href="/show/{{$artikel->id}}" class="btn btn-default">Read more...</a>
 					</div>
 				</div>
